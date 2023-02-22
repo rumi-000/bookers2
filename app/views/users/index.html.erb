@@ -15,7 +15,9 @@
        </tr>
      </table>
  
-     <%= link_to "user_edit", edit_user_path(@user.id) %>
+     <%= link_to edit_user_path(@user.id) do %>
+       <i class="fas fa-user-cog"></i>
+     <% end %>
 
     <h2>New book</h2>
      <% if @book.errors.any? %>
@@ -56,7 +58,7 @@
 		<tr>
 			<td><%= image_tag user.get_profile_image(100,100) %></td>
 			<td><%=user.name %></td>
-			<td><%= link_to "show", user_path(user.id) %></td>
+			<td><%= link_to "Show", user_path(user.id) %></td>
 		</tr>
 		<% end %>
 		</tr>

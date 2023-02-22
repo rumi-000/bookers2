@@ -16,7 +16,9 @@
        </tr>
      </table>
  
-     <%= link_to "user_edit", edit_user_path(@user.id) %>
+     <%= link_to edit_user_path(@user.id) do %>
+       <i class="fas fa-user-cog"></i>
+     <% end %>
 
     <h2>New book</h2>
      <% if @book.errors.any? %>
@@ -46,12 +48,12 @@
    <thead></thead>
 	<tbody>
 		<tr>
-			<td><%= link_to image_tag(@user.get_profile_image(100,100)), user_path(current_user) %>
-			<br><%= link_to @user.name, user_path(current_user) %></td>
+			<td><%= link_to image_tag(@user.get_profile_image(100,100)), user_path(@user) %>
+			<br><%= link_to @user.name, user_path(@user) %></td>
 			<td><%= link_to @Book.title, book_path %></td>
 			<td><%= @Book.body %></td>
 			<% if @user== current_user %>
-       <td><%= link_to "edit", edit_book_path(@Book.id) %></td>
+       <td><%= link_to "Edit", edit_book_path(@Book.id) %></td>
        <% end %>
 			 <% if @user== current_user %>
        <td><%= link_to "Destroy", book_path(@Book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
