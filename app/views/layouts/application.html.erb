@@ -12,48 +12,49 @@
   </head>
 
  <body class="d-flex flex-column vh-100">
-    <header class="shadow-sm">
-      <nav class="navbar navbar-expand-lg navbar-light">
-        <div class="container">
-          <a class="navbar-brand p-3" href="/"><%#= image_tag('logo.png') %></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-                        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav ml-auto">
-    <% if user_signed_in? %>
-      <li class="nav-item">
-        <%= link_to "Home", user_path(current_user), class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Users ", users_path, class: 'nav-link text-dark' %>
-      </li>
+ <header class="shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand p-3" href="/"><%= "bookers"%></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <a class="fas fa-home" href="/"></a>
+          <%= link_to "Home", user_path(current_user), class: 'nav-link text-dark' %><i class="fab fa-twitter"></li>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Users ", users_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Books", books_path, class: 'nav-link text-dark'  %>
+        </li>
        <li class="nav-item">
-        <%= link_to "Books", books_path, class: 'nav-link text-dark'  %>
-      </li>
-      <li class="nav-item">
         <%= link_to "Log out", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-      </li>
-    <% else %>
-      <li class="nav-item">
-        <%= link_to "Home", root_path,class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "About", about_path, class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link text-dark' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
-      </li>
-    <% end %>
-      </ul>
+     　 </li>
+        <% else %>
+        <li class="nav-item">
+          <%= link_to "Home", root_path,class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Sign Up", new_user_registration_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Log in", new_user_session_path, class: 'nav-link text-dark' %>
+        </li>
+        <% end %>
+        </ul>
       </div>
-      </div>
-      </nav>
-    </header>
+    </div>
+  </nav>
+</header>
+ 
     <main class="mb-auto">
       
     <p class="notice"><%= notice %></p>
@@ -61,9 +62,17 @@
     <%= yield %>
     </main>
 
-</body>
+<footer class="bg-dark text-white pt-5 pb-4">
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <p>フッター</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
  </html>
-
 
 
 

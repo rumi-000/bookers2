@@ -1,5 +1,9 @@
+<div class="container"> 
 
-<h4>editing Book</h4>
+<div class="row">  
+<div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+<ul>
+ <li><h1>Editing Book</h1>
 <% if @Book.errors.any? %>
   <%= @Book.errors.count %>errors occurred
   <ul>
@@ -8,18 +12,30 @@
     <% end %>
   </ul>
 <% end %>
+ </li>
 
 <%= form_with model: @Book do |f| %>
-
-  <h4>title</h4>
-  <%= f.text_field :title %>
+<li><table class="table table-striped">
+<h4>Title</h4>
+<%= f.text_field :title %>
   
-  <h4>body</h4>
-  <%= f.text_area :body %>
+<h4>Opinion</h4>
+<%= f.text_area :body %>
   
-  <br><%= f.submit 'Update Book' %>
+<br><%= f.submit 'Update Book' %>
   
 <% end %>
+</table>
+</li>
 
-<%= link_to "show", user_path %>
-<%= link_to "back", books_path %>
+
+
+<li><%= link_to "Show", user_path %>
+<%= link_to "Back", books_path %>
+</li>
+
+</ul>
+
+</div>
+</div>
+</div>
